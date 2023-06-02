@@ -15,4 +15,4 @@ lat_lon1 = InterfaceService.getlatlon(ciudad1,pais1,opcion)
 lat_lon2 = InterfaceService.getlatlon(ciudad2,pais2,opcion)
 
 lat_long_dist = InterfaceService.haversine(lat_lon1[0], lat_lon1[1], lat_lon2[0], lat_lon2[1])
-print(lat_long_dist)
+print(lat_long_dist, "km")
