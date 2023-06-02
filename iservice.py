@@ -1,7 +1,9 @@
 from math import radians, cos, sin, asin, sqrt
-from coordinates import getCoordinates
+from mock_service import getCoordinatesMock
+from csv_service import getCoordinatesCSV
+from api_service import getCoordinatesAPI
 
-class Calculate:
+class InterfaceService:
     def haversine(lat1, lon1, lat2, lon2):
         lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
 
@@ -14,12 +16,11 @@ class Calculate:
         return c * r
 
     def getlatlon(ciudad, pais, forma):
-        coordinates = getCoordinates()
         if (forma == "csv"):
-            return coordinates.CSV(ciudad,pais)
+            return getCoordinatesCSV(ciudad,pais)
         elif (forma == "api"):
-            return coordinates.API(ciudad,pais)
+            return getCoordinatesAPI(ciudad,pais)
         elif (forma == "mock"):
-            return coordinates.Mock()
+            return getCoordinatesMock()
         else:
             return
